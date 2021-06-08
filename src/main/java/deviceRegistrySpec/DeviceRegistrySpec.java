@@ -26,14 +26,16 @@ class Types{
 public enum DeviceRegistrySpec implements ISpecification {
 	CREATEDEVICE(Boolean.class, defineSerializableType(Device.class, notNull())), // returns device ID, takes name and address
 	GETDEVICE(defineSerializableType(Device.class), String.class),
-	GETDEVICES(defineSerializableType(Device[].class, notNull()), String.class),
+	GETDEVICES(defineSerializableType(Device[].class, notNull()), String[].class),
+	GETALLDEVICES(defineSerializableType(Device[].class)),
 	DELETEDEVICE(Boolean.class, String[].class), // takes deviceID's
 	SETATTRIBUTE(Boolean.class, String.class, String.class, defineType(Object.class, notNull(), Types.fromBase)), // takes deviceID, key, value
 	DELETEATTRIBUTE(Boolean.class, String.class, String.class), // takes devicename, attributekey
 	//GETATTRIBUTE(Object.class, String.class), //keep or leave memories
 	ADDTOGROUP(Boolean.class, String.class, String.class), //deviceID, groupID
 	DELETEGROUP(Boolean.class, String.class), // takes groupID
-	DELETEFROMGROUP(Boolean.class, String.class, String.class); // takes deviceID's, and groupID
+	DELETEFROMGROUP(Boolean.class, String.class, String.class),
+	GETGROUP(defineSerializableType(Device[].class), String.class); // takes deviceID's, and groupID
 	
 	
 	

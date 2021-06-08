@@ -8,7 +8,9 @@ import java.util.Set;
 
 
 public class Device implements Serializable {
-    private String name;
+
+	private static final long serialVersionUID = -7806185844606477491L;
+	private String name;
     private Map<String, String> addresses = new HashMap<>();
     private Map<String, Serializable> attributes = new HashMap<>();
     private Set<String> groups = new HashSet<>();

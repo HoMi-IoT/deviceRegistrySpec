@@ -17,6 +17,7 @@ class Types{
 	static TypeDef<String> key = defineType(String.class, notNull());
 	static TypeDef<Object> value = defineType(Object.class, notNull());
 	static TypeDef<String> id = defineType(String.class, notNull());
+	static TypeDef<String[]> ids = defineType(String[].class, notNull());
 	static TypeDef<IObserver> observer = defineType(IObserver.class, notNull());
 	static Predicate<Object> fromBase = (o)->{
 		if (o.getClass().getModule().getName().equals("java.base") && o instanceof Serializable)

@@ -16,7 +16,7 @@ class Types{
 	static TypeDef<String> groupID = defineType(String.class, notNull());
 	static TypeDef<String> key = defineType(String.class, notNull());
 	static TypeDef<Object> value = defineType(Object.class, notNull());
-	static TypeDef<String[]> ids = defineType(String[].class, notNull());
+	static TypeDef<String> id = defineType(String.class, notNull());
 	static TypeDef<IObserver> observer = defineType(IObserver.class, notNull());
 	static Predicate<Object> fromBase = (o)->{
 		if (o.getClass().getModule().getName().equals("java.base") && o instanceof Serializable)
@@ -32,7 +32,7 @@ public enum DeviceRegistrySpec implements ISpecification {
 	GETDEVICE(defineSerializableType(Device.class), Types.deviceID), //deviceID
 	GETDEVICES(defineSerializableType(Device[].class, notNull()), Types.ids), // accepts array of deviceIDs
 	GETALLDEVICES(defineSerializableType(Device[].class)),
-	DELETEDEVICE(Boolean.class, Types.ids), // takes deviceID's
+	DELETEDEVICE(Boolean.class, Types.id), // takes deviceID's
 	SETATTRIBUTE(Boolean.class, Types.deviceID, Types.key, defineType(Object.class, notNull(), Types.fromBase)), // takes deviceID, key, value
 	DELETEATTRIBUTE(Boolean.class, Types.deviceID, Types.key), // takes devicename, attributekey
 	//GETATTRIBUTE(Object.class, String.class), //keep or leave memories
